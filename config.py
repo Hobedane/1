@@ -1,0 +1,22 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+class Config:
+    BOT_TOKEN = os.getenv('BOT_TOKEN')
+    ADMIN_ID = int(os.getenv('ADMIN_ID'))
+    EXCHANGE_RATE = float(os.getenv('EXCHANGE_RATE', 1.16))
+    
+    # States for conversations
+    (
+        PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_DESCRIPTION, PRODUCT_QUANTITY,
+        PRODUCT_IMAGE1, PRODUCT_IMAGE2_OPTION, PRODUCT_IMAGE2, PRODUCT_COORDINATES,
+        PAYMENT_CURRENCY, PAYMENT_ADDRESS, PAYMENT_BLOCKCHAIN,
+        DISCOUNT_CLIENT_TYPE, DISCOUNT_CLIENT_ID, DISCOUNT_CODE, 
+        DISCOUNT_PERCENTAGE, DISCOUNT_EXPIRY, DISCOUNT_MAX_USES,
+        CONTENT_EDIT, PAYMENT_SOURCE_ADDRESS, DISCOUNT_CODE_INPUT
+    ) = range(20)
+    
+    # Add conversation end state
+    CONVERSATION_END = -1
